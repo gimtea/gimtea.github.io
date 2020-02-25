@@ -49,10 +49,6 @@
             letter-spacing: .05rem;
         }
 
-        .is-hidden {
-            display: none;
-        }
-
         @media only screen and (max-width: 600px) {
             .main {
                 height: 50vh;
@@ -65,7 +61,7 @@
     <h1>What's the tea?</h1>
     <button class="button" id="button">Gim Tea</button>
     <main class="main">
-        <p class="message is-hidden" id="tea"></p>
+        <p class="message" id="tea"></p>
     </main>
 
     <script>
@@ -75,6 +71,7 @@
             'You\'re good at embroidery',
             'Your laugh isn\'t annoying',
             'Men are intimidated by you',
+            'You\'re not a lesbian',
             'Your tits are huge'
         ]
 
@@ -82,17 +79,11 @@
         const tea = document.getElementById('tea')
 
         const state = {
-            isVisible: false,
             currentMessage: 0
         }
 
         button.onclick = function () {
             button.classList.add('is-active')
-
-            if (!state.isVisible) {
-                state.isVisible = true
-                tea.classList.remove('is-hidden')
-            }
 
             const message = MESSAGES[state.currentMessage]
 
